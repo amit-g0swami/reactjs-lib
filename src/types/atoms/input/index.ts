@@ -1,3 +1,6 @@
+import Joi from 'joi'
+import { ReactNode } from 'react'
+
 export enum INPUT_TYPE {
   TEXT = 'text',
   PASSWORD = 'password',
@@ -152,4 +155,164 @@ export interface DateTimeRangeInputProps extends BaseInputProps {
   maxOfMax?: string // Maximum selectable date and time for the end input
   onStartDateChange?: (event: React.ChangeEvent<HTMLInputElement>) => void
   onEndDateChange?: (event: React.ChangeEvent<HTMLInputElement>) => void
+}
+
+export interface EmailInputProps extends BaseInputProps {}
+
+export type FormInputProps = {
+  label: string
+  required?: boolean
+  // validate?: (value: any) => string | null
+  // onChange?: (value: any) => void
+  tooltip?: string
+  icon?: React.ReactNode
+  loading?: boolean
+  size?: 'small' | 'medium' | 'large'
+  children: React.ReactNode
+  name: string
+  groupInputName?: string
+  disabled?: boolean
+  onFormGroupInputChange?: (name: string, value: any) => void
+}
+
+export interface IFormProviderProps<T> {
+  children: ReactNode
+  schema: Joi.ObjectSchema
+  validationDetails?: T[]
+  initialValues?: Record<string, any>
+  customValidationMessages?: Record<string, string>
+  onSubmit: (data: Record<string, any>) => void
+  customValidate?: (
+    formData: Record<string, any>,
+    validationDetails: T[] | undefined,
+    setErrors: (errors: Record<string, any>) => void
+  ) => boolean
+}
+
+export interface IFormRadioInput {
+  label: string
+  required?: boolean
+  // validate?: (value: any) => string | null
+  // onChange?: (value: any) => void
+  tooltip?: string
+  icon?: React.ReactNode
+  loading?: boolean
+  size?: 'small' | 'medium' | 'large'
+  children: React.ReactNode
+  name: string
+  groupInputName?: string
+  onFormGroupInputChange?: (name: string, value: any) => void
+}
+
+export type FormRangeInputProps = {
+  label: [string, string]
+  required?: boolean
+  // validate?: (value: any) => string | null
+  // onChange?: (value: any) => void
+  tooltip?: string
+  icon?: React.ReactNode
+  loading?: boolean
+  size?: 'small' | 'medium' | 'large'
+  children: React.ReactNode
+  name: string
+  groupInputName?: string
+  disabled?: boolean
+  onFormGroupInputChange?: (name: string, value: any) => void
+}
+
+export type FormRowProps = {
+  children: ReactNode
+  gap?: string // Optional gap between children, using Tailwind's spacing values
+  className?: string // For any additional classes the user might want to add
+}
+
+export type FormSectionProps = {
+  label?: string
+  tooltip?: string
+  children: ReactNode
+  className?: string
+}
+
+export interface ImageUploadProps extends BaseInputProps {
+  showPreview?: boolean
+  onFileChange?: (file: File | null) => void
+}
+
+export interface MultiImageUploadProps extends BaseInputProps {
+  showPreviews?: boolean
+  onFilesChange?: (files: File[] | null) => void
+}
+
+export interface NumberInputProps extends BaseInputProps {
+  min?: number // Minimum allowable number
+  max?: number // Maximum allowable number
+  step?: number // Step size for incrementing/decrementing the value
+}
+
+export interface TypeAheadProps extends BaseInputProps {
+  iconClassName?: string
+  isSearchActive?: boolean
+  children?: React.ReactNode
+  Icon?: React.ComponentType<{ className?: string; onClick?: () => void }>
+  iconOnClick?: () => void
+}
+
+export interface TextAreaInputProps
+  extends BaseInputProps<HTMLTextAreaElement> {
+  rows?: number
+  cols?: number
+  lengthReq?: number // Maximum allowable length
+}
+
+export interface TextInputProps extends BaseInputProps {
+  // Additional props specific to TextInput
+  autoComplete?: 'on' | 'off' // For controlling browser autocomplete behavior
+}
+
+export interface SwitchProps extends BaseInputProps<HTMLInputElement> {
+  checked: boolean
+  onSwitch?: () => void
+}
+
+export interface SearchBarProps extends BaseInputProps {
+  iconClassName?: string
+  isSearchActive?: boolean
+  children?: React.ReactNode
+  Icon?: React.ComponentType<{ className?: string; onClick?: () => void }>
+  iconOnClick?: () => void
+}
+
+export interface SingleFileUploadProps extends BaseInputProps {
+  maxSize?: number // in bytes
+  allowedExtensions?: string[]
+  dragAndDrop?: boolean
+  showProgress?: boolean
+  onFileChange?: (file: File | null) => void
+}
+
+export interface NumericRangeInputProps extends BaseInputProps {
+  min: number
+  max: number
+  onRangeChange: (min: number, max: number) => void
+}
+
+export interface NumericRangeSliderInputProps extends BaseInputProps {
+  min: number
+  max: number
+  value: [number, number]
+  onRangeChange: (value: [number, number]) => void
+}
+
+export interface PasswordInputProps extends BaseInputProps {
+  showPasswordToggle?: boolean // Allow users to toggle password visibility
+}
+
+export interface RadioProps extends BaseInputProps<HTMLInputElement> {
+  label?: string
+  radioType?: 'primary' | 'secondary' | 'tertiary' | 'neutral' | 'base'
+}
+
+export interface RegexInputProps extends BaseInputProps {
+  pattern: string // Regular expression pattern
+  onValidation?: (isValid: boolean) => void // Callback to inform parent about validation status
 }
