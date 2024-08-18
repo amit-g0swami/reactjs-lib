@@ -1,6 +1,7 @@
 import React from 'react'
+import { IUseKeyPress } from '../types'
 
-export const useKeyPress = (targetKey: string) => {
+export const useKeyPress: IUseKeyPress = (targetKey) => {
   const [keyPressed, setKeyPressed] = React.useState(false)
 
   const downHandler = ({ key }: KeyboardEvent) => {

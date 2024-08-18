@@ -1,6 +1,7 @@
 import React from 'react'
+import { IUseInfiniteScroll } from '../types'
 
-export const useInfiniteScroll = (callback: () => void) => {
+export const useInfiniteScroll: IUseInfiniteScroll = (callback) => {
   const scrollRef = React.useRef<HTMLDivElement>(null)
   const [isFetching, setIsFetching] = React.useState(false)
   const [isBottom, setIsBottom] = React.useState(false)

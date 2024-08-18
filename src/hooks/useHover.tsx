@@ -1,6 +1,7 @@
 import React from 'react'
+import { IUseHover } from '../types'
 
-export const useHover = (ref: React.RefObject<HTMLElement>) => {
+export const useHover: IUseHover = (ref) => {
   const [isHovered, setIsHovered] = React.useState(false)
 
   const on = () => setIsHovered(true)

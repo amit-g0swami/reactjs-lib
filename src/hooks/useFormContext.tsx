@@ -1,14 +1,5 @@
-import React, { createContext, useContext } from 'react'
-
-type FormContextType = {
-  formData: Record<string, any>
-  errors: Record<string, string>
-  validate: () => boolean
-  setFormData: (data: Record<string, any>) => void
-  setErrors: (errors: Record<string, string>) => void
-  handleInputChange: (name: string, value: any) => void
-  handleSubmit: (e: React.FormEvent) => void
-}
+import { createContext, useContext } from 'react'
+import { FormContextType } from '../types'
 
 export const FormContext = createContext<FormContextType | undefined>(undefined)
 

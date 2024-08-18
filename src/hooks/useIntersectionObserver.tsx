@@ -1,8 +1,9 @@
 import React from 'react'
+import { IUseIntersectionObserver } from '../types'
 
-export const useIntersectionObserver = (
-  elementRef: React.RefObject<HTMLElement>,
-  options: IntersectionObserverInit
+export const useIntersectionObserver: IUseIntersectionObserver = (
+  elementRef,
+  options
 ) => {
   const [entry, setEntry] = React.useState<IntersectionObserverEntry | null>(
     null
