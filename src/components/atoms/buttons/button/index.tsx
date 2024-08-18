@@ -5,13 +5,13 @@ export const Button: React.FC<ButtonProps> = ({
   btnType = 'primary',
   disable = false,
   className = '',
-  onClick,
   name,
   value,
   type,
   btnText,
   children,
-  form
+  form,
+  onClick
 }: ButtonProps) => {
   const btnTypeClasses = {
     primary: `outline outline-1 outline-primary-400
