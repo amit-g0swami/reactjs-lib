@@ -13,6 +13,11 @@ export enum FILTER_TYPE {
   MULTISELECT = 'multiSelect'
 }
 
+export enum SORT_DIRECTION {
+  ASC = 'asc',
+  DESC = 'desc'
+}
+
 export type TableColumn<T, U> = {
   id: string
   label: string
@@ -46,7 +51,7 @@ export type TableCellProps<T, U> = {
 
 export interface ITableSort {
   columnId: string
-  direction: 'asc' | 'desc'
+  direction: SORT_DIRECTION
 }
 
 export interface ITableFilter {
