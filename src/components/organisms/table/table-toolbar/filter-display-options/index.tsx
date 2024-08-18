@@ -1,7 +1,11 @@
 import React, { useState } from 'react'
 import { Radio, TextInput } from '../../../../atoms'
 import { BiChevronDown, BiChevronUp } from 'react-icons/bi'
-import { FILTER_TYPE, FilterDisplayOptionsProps, INPUT_TYPE } from '../../../../../types'
+import {
+  FILTER_TYPE,
+  FilterDisplayOptionsProps,
+  INPUT_TYPE
+} from '../../../../../types'
 
 const TableFilterInput = ({
   filterData,

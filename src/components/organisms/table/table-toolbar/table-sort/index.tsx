@@ -2,14 +2,20 @@ import React, { useRef, useState } from 'react'
 import { Select } from '../../../../molecules'
 import { Button, Switch } from '../../../../atoms'
 import { useOutsideClick } from '../../../../../hooks'
-import { ITableSort, TableSortProps } from '../../../../../types'
+import {
+  ITableSort,
+  SORT_DIRECTION,
+  TableSortProps
+} from '../../../../../types'
 
 export const TableSort: React.FC<TableSortProps> = ({
   definedSorts = [],
   onChange
 }) => {
   const [selectedColumn, setSelectedColumn] = useState<string | null>(null)
-  const [sortDirection, setSortDirection] = useState<'asc' | 'desc'>('asc')
+  const [sortDirection, setSortDirection] = useState<SORT_DIRECTION>(
+    SORT_DIRECTION.ASC
+  )
   const [isSortOpen, setIsSortOpen] = useState(false)
 
   const tableFilterSortRef = useRef<HTMLDivElement>(null)
@@ -20,7 +26,11 @@ export const TableSort: React.FC<TableSortProps> = ({
   }
 
   const handleSortDirectionChange = () => {
-    setSortDirection(sortDirection === 'desc' ? 'asc' : 'desc')
+    setSortDirection(
+      sortDirection === SORT_DIRECTION.DESC
+        ? SORT_DIRECTION.ASC
+        : SORT_DIRECTION.DESC
+    )
   }
 
   const applySort = () => {

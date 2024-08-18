@@ -1,6 +1,5 @@
 /** @type {import('tailwindcss').Config} */
 
-const plugin = require('tailwindcss/plugin')
 import { theme } from './src/theme'
 
 module.exports = {
@@ -14,6 +13,5 @@ module.exports = {
       }
     }
   },
-  variants: {},
-  plugins: [plugin(fontSizePlugin)]
+  variants: {}
 }

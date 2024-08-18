@@ -1,5 +1,9 @@
 import React from 'react'
-import { TableColumn, TableHeaderProps } from '../../../../types'
+import {
+  SORT_DIRECTION,
+  TableColumn,
+  TableHeaderProps
+} from '../../../../types'
 
 export const TableHeader = <T, U>({
   columns,
@@ -8,15 +12,18 @@ export const TableHeader = <T, U>({
   showEditButton,
   onSortChange
 }: TableHeaderProps<T, U>) => {
-  const getSortDirection = (columnId: string): 'asc' | 'desc' => {
+  const getSortDirection = (columnId: string): SORT_DIRECTION => {
     const sort = appliedSorts.find((s) => s.columnId === columnId)
-    return sort ? sort.direction : 'asc'
+    return sort ? sort.direction : SORT_DIRECTION.ASC
   }
 
   const handleSortClick = <T, U>(column: TableColumn<T, U>) => {
     if (column.sortable && onSortChange) {
       const currentDirection = getSortDirection(column.id)
-      const newDirection = currentDirection === 'asc' ? 'desc' : 'asc'
+      const newDirection =
+        currentDirection === SORT_DIRECTION.ASC
+          ? SORT_DIRECTION.DESC
+          : SORT_DIRECTION.ASC
       onSortChange({ columnId: column.id, direction: newDirection })
     }
   }
