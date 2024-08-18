@@ -82,8 +82,3 @@ export const TableComponent = <T, U>({
     </div>
   )
 }
-
-export * from './table-body'
-export * from './table-footer'
-export * from './table-header'
-export * from './table-toolbar'
