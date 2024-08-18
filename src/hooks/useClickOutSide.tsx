@@ -1,5 +1,5 @@
-import React, { useEffect } from 'react'
-import { IUseOutsideClick } from '../types/hooks/hooks'
+import { useEffect } from 'react'
+import { IUseOutsideClick } from '../types'
 
 export const useOutsideClick: IUseOutsideClick = (ref, callback) => {
   const handleClick = (e: MouseEvent) => {
