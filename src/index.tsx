@@ -1,12 +1,12 @@
 import './styles/output.css'
 import React from 'react'
 import App from './App'
-import { createRoot } from 'react-dom/client';
+import { createRoot } from 'react-dom/client'
 
 // render the App component to the root element
-const container = document.getElementById('root');
-const root = createRoot(container!); 
-root.render(<App />);
+const container = document.getElementById('root')
+const root = createRoot(container!)
+root.render(<App />)
 
 // export all components, hooks, theme, types, and utility
 // components from the library
