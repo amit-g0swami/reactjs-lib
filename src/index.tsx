@@ -1,15 +1,12 @@
-// import React from 'react'
-// import ReactDOM from 'react-dom'
-// import App from './App'
-// import './styles/output.css'
+import './styles/output.css'
+import React from 'react'
+import App from './App'
+import { createRoot } from 'react-dom/client';
 
-// // react app entry point
-// ReactDOM.render(
-//   <React.StrictMode>
-//     <App />
-//   </React.StrictMode>,
-//   document.getElementById('root')
-// )
+// render the App component to the root element
+const container = document.getElementById('root');
+const root = createRoot(container!); 
+root.render(<App />);
 
 // export all components, hooks, theme, types, and utility
 // components from the library
