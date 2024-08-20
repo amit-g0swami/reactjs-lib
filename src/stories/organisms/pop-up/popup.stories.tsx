@@ -14,7 +14,7 @@ export default meta
 
 export const DefaultPopUp: Story = {
   args: {},
-  render: (args) => {
+  render: (_args) => {
     const [isOpen, setIsOpen] = useState(false)
 
     return (
@@ -42,7 +42,7 @@ export const DefaultPopUp: Story = {
 
 export const ErrorPopUp: Story = {
   args: {},
-  render: (args) => {
+  render: (_args) => {
     const [isOpen, setIsOpen] = useState(false)
 
     return (

@@ -45,7 +45,7 @@ export const DefaultTable: Story = {
       {
         id: 'location',
         label: 'Location',
-        render: (rowData: IRowData, column: IColumnData) => (
+        render: (rowData: IRowData, _column: IColumnData) => (
           <div>
             <FaFolder />
             {rowData.location}

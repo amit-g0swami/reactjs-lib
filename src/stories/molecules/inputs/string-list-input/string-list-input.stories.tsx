@@ -1,6 +1,6 @@
 import { Meta, StoryObj } from '@storybook/react'
 import { StringListInput } from '../../../../components'
-import { StringListInputProps } from '../../../../src/types'
+import { StringListInputProps } from '../../../../types'
 
 const meta: Meta = {
   title: 'Form/Input/StringListInput',

@@ -1,6 +1,6 @@
 import { Meta, StoryObj } from '@storybook/react'
 import { NumericListInput } from '../../../../components'
-import { NumericListInputProps } from '../../../../src/types'
+import { NumericListInputProps } from '../../../../types'
 
 const meta: Meta = {
   title: 'Form/Input/NumericListInput',

@@ -14,7 +14,7 @@ export default meta
 
 export const DefaultModal: Story = {
   args: {},
-  render: (args) => {
+  render: (_args) => {
     const [isOpen, setIsOpen] = useState(false)
 
     return (

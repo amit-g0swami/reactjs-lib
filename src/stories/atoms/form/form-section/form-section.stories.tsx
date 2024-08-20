@@ -17,7 +17,7 @@ export const DefaultFormSectionGroup: Story = {
       <TextInput
         placeholder="Enter text..."
         value=""
-        onChange={function (e): void {
+        onChange={function (): void {
           throw new Error('Function not implemented.')
         }}
       />
@@ -33,7 +33,7 @@ export const FormSectionGroupWithTooltip: Story = {
       <TextInput
         placeholder="Enter text..."
         value=""
-        onChange={function (e): void {
+        onChange={function (): void {
           throw new Error('Function not implemented.')
         }}
       />
@@ -49,14 +49,14 @@ export const FormSectionGroupMultipleInputs: Story = {
         <TextInput
           placeholder="First input..."
           value=""
-          onChange={function (e): void {
+          onChange={function (): void {
             throw new Error('Function not implemented.')
           }}
         />
         <TextInput
           placeholder="Second input..."
           value=""
-          onChange={function (e): void {
+          onChange={function (): void {
             throw new Error('Function not implemented.')
           }}
         />
