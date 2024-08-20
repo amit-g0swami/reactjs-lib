@@ -1,6 +1,7 @@
 // import React from 'react'
 // import ReactDOM from 'react-dom'
 // import App from './App'
+// import './styles/output.css'
 
 // // react app entry point
 // ReactDOM.render(
@@ -11,7 +12,6 @@
 // )
 
 // export all components, hooks, theme, types, and utility
-
 // components from the library
 export * from './components'
 export * from './components/atoms'
