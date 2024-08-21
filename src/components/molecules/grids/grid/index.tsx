@@ -2,7 +2,7 @@ import React from 'react'
 import { IGridProps } from '../../../../types'
 import { Container } from '../../../atoms'
 
-const Grid: React.FC<IGridProps> = ({
+export const Grid: React.FC<IGridProps> = ({
   container = false,
   item = false,
   spacing = 0,
@@ -38,5 +38,3 @@ const Grid: React.FC<IGridProps> = ({
 
   return <Container className={getGridClasses()}>{children}</Container>
 }
-
-export default Grid

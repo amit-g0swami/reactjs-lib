@@ -13,7 +13,7 @@
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build",
     "start": "tsdx watch",
-    "start-dev": "react-scripts start",
+    "start-dev": "FAST_REFRESH=false react-scripts start",
     "build": "npm run compile",
     "compile": "tsdx build",
     "test": "tsdx test --maxWorkers=4",

@@ -55,7 +55,7 @@ export const DateTimeInput: React.FC<DateTimeInputProps> = ({
 
   return (
     <>
-      <div className="flex gap-0 items-start">
+      <div className="flex gap-2 items-start">
         <DateInput
           openNext={false}
           invalid={false}

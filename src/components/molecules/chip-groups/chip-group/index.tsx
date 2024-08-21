@@ -4,10 +4,10 @@ import { Chip } from '../../../atoms'
 
 export const ChipGroup: React.FC<ChipGroupProps> = ({
   chips,
-  onDelete,
-  onClick,
   color = 'neutral',
-  className = ''
+  className = '',
+  onDelete,
+  onClick
 }: ChipGroupProps) => {
   return (
     <div className={`flex flex-wrap gap-2 ${className}`}>

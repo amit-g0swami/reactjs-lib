@@ -30,12 +30,12 @@ export const DateInput: React.FC<DateInputProps> = ({
   maxDate,
   value,
   bounded,
-  onChange,
   preSelectedDate,
   opened,
   openNext,
   isNextOpened,
   setIsNextOpened,
+  onChange,
   ...props
 }: DateInputProps) => {
   const [currentMonth, setCurrentMonth] = useState<Date>(
@@ -397,7 +397,7 @@ export const DateInput: React.FC<DateInputProps> = ({
     <>
       <div className="flex flex-col w-80" ref={datePickerRef}>
         <div
-          className="flex h-10 w-52 border items-center rounded-lg pt-2 pl-2 pr-20 pb-2.5 hover:border-neutral-400 focus:border-neutral-900"
+          className="flex h-10 border items-center rounded-lg pt-2 pl-2 pr-20 pb-2.5 hover:border-neutral-400 focus:border-neutral-900"
           onClick={handleInputClick}
         >
           <span
@@ -421,6 +421,7 @@ export const DateInput: React.FC<DateInputProps> = ({
                 ? format(preSelectedDate, 'dd/MM/yyyy')
                 : 'dd/mm/yyyy'
             }
+            style={{ cursor: 'pointer', width: '90%' }}
             readOnly
           />
         </div>

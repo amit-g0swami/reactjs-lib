@@ -19,7 +19,7 @@ export default meta
 
 export const DefaultChipGroup: Story = {
   args: {
-    chips: ['Chip 1', 'Chip 2', 'Chip 3'],
+    chips: ['primary', 'secondary', 'tertiary', 'neutral'],
     color: 'neutral'
   }
 }

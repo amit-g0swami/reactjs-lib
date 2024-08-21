@@ -6,8 +6,8 @@ import BaseInput from '../base-input'
 
 export const TimeInput: React.FC<TimeInputProps> = ({
   value,
-  onChange,
   className,
+  onChange,
   ...props
 }: TimeInputProps) => {
   const [isOpened, setIsOpened] = useState<boolean>(false)
