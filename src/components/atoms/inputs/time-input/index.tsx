@@ -96,7 +96,7 @@ export const TimeInput: React.FC<TimeInputProps> = ({
                 </span>
               </div>
               <div className="w-8 flex flex-col justify-center items-center bg-primary-100 bg-opacity-10 p-1 rounded border border-solid border-primary-400">
-                <span className="font-normal text-sm text-primary-100 font-normal">
+                <span className="font-normal text-sm text-primary-100">
                   {meridiem}
                 </span>
               </div>
