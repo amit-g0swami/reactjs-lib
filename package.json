@@ -101,5 +101,23 @@
     "axios": "^1.5.0",
     "date-fns": "^3.6.0",
     "joi": "^17.10.1"
-  }
+  },
+  "description": "This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/amit-g0swami/reactjs-lib.git"
+  },
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/amit-g0swami/reactjs-lib/issues"
+  },
+  "homepage": "https://github.com/amit-g0swami/reactjs-lib#readme",
+  "keywords": [
+    "react",
+    "typescript",
+    "tailwindcss",
+    "storybook",
+    "reactjs-lib",
+    "tsdx"
+  ]
 }

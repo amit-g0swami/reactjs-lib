@@ -1,3 +1,4 @@
+import Joi from 'joi'
 import React from 'react'
 import BaseInput from './components/atoms/inputs/base-input'
 import {
@@ -18,6 +19,9 @@ import {
   Dropdown,
   EmailInput,
   FloatingButton,
+  FormGroupInputs,
+  FormInput,
+  FormProvider,
   Grid,
   ImageUpload,
   InputDescription,
@@ -38,7 +42,9 @@ import {
   SearchBar,
   SelectWithIcon,
   SingleFileUpload,
+  StringListInput,
   Switch,
+  TableComponent,
   TextAreaInput,
   TextInput,
   TimeInput,
@@ -46,6 +52,28 @@ import {
   TypeAhead
 } from './components'
 import { FaSave } from 'react-icons/fa'
+import { FILTER_TYPE, SORT_DIRECTION } from './types'
+
+// types
+interface IValidationDetails {
+  type: string
+  validationRules: Record<string, any>
+}
+
+interface IRowData {
+  id: number
+  name: string
+  age: number
+  location: string
+}
+
+const formValidationSchema = Joi.object({
+  name: Joi.string().required(),
+  city: Joi.string().required(),
+  validationRules: Joi.object()
+    .pattern(Joi.string(), Joi.any().required())
+    .required()
+})
 
 // constants
 const options = [
@@ -55,17 +83,88 @@ const options = [
   { value: 'option4', label: 'Option 4' }
 ]
 
+const formInitialValues = {}
+const validationDetails: IValidationDetails[] = [
+  {
+    type: 'string',
+    validationRules: {
+      maxLength: 10
+    }
+  }
+]
+const customValidationMessages = {
+  name: "Name can't be empty",
+  city: "City can't be empty"
+}
+
+const defaultSorts = [
+  { columnId: 'name', direction: SORT_DIRECTION.ASC },
+  { columnId: 'age', direction: SORT_DIRECTION.DESC }
+]
+
+const definedFilters = [
+  { columnId: 'name', value: '', type: FILTER_TYPE.STRING },
+  { columnId: 'age', value: '', type: FILTER_TYPE.BOOLEAN }
+]
+
 function App() {
+  const [page, setPage] = React.useState(1)
+  const [pageLimit, setPageLimit] = React.useState(10)
+  const [searchedValue, setSearchedValue] = React.useState('')
+  const [rowData, _setRowData] = React.useState([
+    { id: 1, name: 'John Doe', age: 30, location: 'USA' },
+    { id: 2, name: 'Jane Doe', age: 25, location: 'UK' }
+  ])
+
   const [checked, setChecked] = React.useState(false)
   const [startDate, setStartDate] = React.useState('2021-09-01')
   const [endDate, setEndDate] = React.useState('2021-09-30')
 
+  // DateRangeInput Components
   const onRangeChange = (min: number, max: number) => {
     console.log(min, max)
   }
   const onRangeSliderChange = (values: number[]) => {
     console.log(values)
   }
+
+  // Form Component
+  const handleFormSubmit = (values: Record<string, any>) => {
+    console.log(values)
+  }
+
+  // TableComponent
+  const handlePageChange = (page: number) => {
+    setPage(page)
+  }
+  const handlePageLimitChange = (pageLimit: number) => {
+    setPageLimit(pageLimit)
+  }
+  const handleSortChange = (sort: Record<string, any>) => {
+    console.log(sort)
+  }
+  const handleFilterChange = (filters: Record<string, any>) => {
+    console.log(filters)
+  }
+  const RenderRow = ({ id, name, age }: IRowData) => {
+    return (
+      <Container>
+        <FaSave />
+        <Container>{id}</Container>
+        <Container>{name}</Container>
+        <Container>{age}</Container>
+      </Container>
+    )
+  }
+  const columns = [
+    { id: 'name', label: 'Name' },
+    { id: 'age', label: 'Age' },
+    {
+      id: 'location',
+      label: 'Location',
+      render: RenderRow
+    }
+  ]
 
   return (
     <Container className="p-6">
@@ -157,7 +256,44 @@ function App() {
           options={options}
         />
         <SelectWithIcon options={options} icon={FaSave} />
+        <FormProvider
+          schema={formValidationSchema}
+          validationDetails={validationDetails}
+          initialValues={formInitialValues}
+          customValidationMessages={customValidationMessages}
+          onSubmit={handleFormSubmit}
+        >
+          <FormInput label="City" name="city" required>
+            <TextInput placeholder="City" />
+          </FormInput>
+          <FormGroupInputs groupInputName="validationRules">
+            <StringListInput
+              notContainsList={[]}
+              name="notContains"
+              label="Add notContains"
+            />
+          </FormGroupInputs>
+          <Button btnType="primary" btnText="Submit" type="submit" />
+        </FormProvider>
       </Grid>
+      👇 Organisms
+      <TableComponent
+        rowKey="id"
+        page={page}
+        rowData={rowData}
+        columns={columns}
+        pageLimit={pageLimit}
+        showEditButton={true}
+        definedSorts={defaultSorts}
+        definedFilters={definedFilters}
+        searchedValue={searchedValue}
+        renderRow={RenderRow}
+        handleSortChange={handleSortChange}
+        getSearchedValue={setSearchedValue}
+        handlePageChange={handlePageChange}
+        handleFilterChange={handleFilterChange}
+        handlePageLimitChange={handlePageLimitChange}
+      />
     </Container>
   )
 }
