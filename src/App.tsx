@@ -19,7 +19,6 @@ import {
   Dropdown,
   EmailInput,
   FloatingButton,
-  FormGroupInputs,
   FormInput,
   FormProvider,
   Grid,
@@ -111,7 +110,7 @@ function App() {
   const [page, setPage] = React.useState(1)
   const [pageLimit, setPageLimit] = React.useState(10)
   const [searchedValue, setSearchedValue] = React.useState('')
-  const [rowData, _setRowData] = React.useState([
+  const [rowData] = React.useState([
     { id: 1, name: 'John Doe', age: 30, location: 'USA' },
     { id: 2, name: 'Jane Doe', age: 25, location: 'UK' }
   ])
@@ -266,13 +265,11 @@ function App() {
           <FormInput label="City" name="city" required>
             <TextInput placeholder="City" />
           </FormInput>
-          <FormGroupInputs groupInputName="validationRules">
-            <StringListInput
-              notContainsList={[]}
-              name="notContains"
-              label="Add notContains"
-            />
-          </FormGroupInputs>
+          <StringListInput
+            notContainsList={[]}
+            name="notContains"
+            label="Add notContains"
+          />
           <Button btnType="primary" btnText="Submit" type="submit" />
         </FormProvider>
       </Grid>

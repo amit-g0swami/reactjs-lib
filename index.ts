@@ -1,3 +1,5 @@
+// export the tailwind styles
+import './styles.css'
 // component exports
 export * from './src/components'
 export * from './src/components/atoms'
